@@ -32,7 +32,7 @@ php td2.php
 
 Aucune base de données n'est nécessaire : tout tient en mémoire.
 
-`td2.php` met quelques secondes à répondre — il simule trois véhicules sur
+`td2.php` met quelques secondes à répondre car il simule trois véhicules sur
 100 000 km.
 
 ## Organisation
@@ -65,14 +65,3 @@ données et le comportement, l'affichage est décidé dans `public/`.
    balise `<pre>`.
 4. `src/Exceptions/ReservoirVideException.php` : l'anatomie d'une exception
    personnalisée, les trois autres en sont des variations.
-
-## Deux choses à essayer
-
-Dans `td1.php`, **décommentez l'appel à `setPuissance`**. La propriété est
-`readonly` : vous obtiendrez une `Error`, et un `catch (Exception $e)` ne
-l'attraperait pas.
-
-Dans `src/Vehicule.php`, **remplacez les `$this::AUTONOMIE` par
-`self::AUTONOMIE`**, puis relancez `td2.php`. Rien ne plante, la boucle se
-termine, les trois véhicules atteignent bien leurs 100 000 km. Regardez
-simplement l'autonomie qu'ils annoncent : tous les trois la même.
